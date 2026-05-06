@@ -4,8 +4,8 @@ Settings: `n_threads=8`, `n_ctx=2048`, `n_batch=512`, `n_gpu_layers=0`.
 
 | Model | Load (ms) | TTFT P50/P95 (ms) | TPOT P50/P95 (ms) | E2E P50/P95/P99 (ms) | Decode rate (tok/s) |
 |---|---:|---:|---:|---:|---:|
-| Llama-3.2-3B-Instruct-Q4_K_M.gguf | 2047 | 690 / 1865 | 149.3 / 288.1 | 10193 / 19577 / 21957 | 6.7 |
-| Qwen2.5-0.5B-Instruct-Q2_K.gguf | 1199 | 167 / 797 | 54.5 / 92.0 | 3636 / 6378 / 7207 | 18.3 |
+| Llama-3.2-3B-Instruct-Q4_K_M.gguf | 1372 | 780 / 1317 | 137.9 / 165.4 | 9461 / 11352 / 12226 | 7.3 |
+| Qwen2.5-0.5B-Instruct-Q2_K.gguf | 1106 | 166 / 214 | 43.3 / 45.9 | 2866 / 3061 / 3112 | 23.1 |
 
 ## Observations
 
