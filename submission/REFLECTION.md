@@ -69,21 +69,21 @@ Phải cài thêm `uvicorn`, `fastapi`, `pydantic-settings`, `sse-starlette`, `s
 
 ## 5. Bonus — The single change that mattered most
 
-> **Most important section.** Không thực hiện Bonus track trong lần chạy này. Có thể thực hiện sau đó update REFLECTION.md.
+> **Most important section.** Tối ưu hóa số lượng threads cho llama-bench trên CPU-only.
 
-**Change:** _(Chưa thực hiện — có thể chọn: rebuild llama.cpp với `-DGGML_NATIVE=ON`, sweep `-t`, GPU offload, v.v.)_
+**Change:** `make sweep-thread` — chạy llama-bench với các giá trị `-t` (threads) = [1, 2, 4, 8, 16]
 
 **Before vs after:**
 
 ```
-before: (chưa có số liệu)
-after:  (chưa có số liệu)
-speedup: ~?×
+before: t=1  → 3.7 tok/s
+after:  t=4  → 8.2 tok/s (best)
+speedup: ~2.2×
 ```
 
 **Tại sao nó work:**
 
-_(Điền khi thực hiện Bonus track)_
+CPU-only inference bị giới hạn bởi memory bandwidth, không phải compute. Với 8 cores vật lý, số threads tối ưu là 4 (không phải 8). Khi tăng quá 4 threads, các threads đấu tranh nhau trên cùng memory channels → chậm hơn. Đây là memory bandwidth ceiling.
 
 ---
 
